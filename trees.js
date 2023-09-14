@@ -1,3 +1,17 @@
+// for a balanced tree of n nodes
+// height = log2(n+1)
+// so n = 2^(height) -1
+// the number of leaves is (n+1)/2
+// A Binary Tree with L leaves has at least | Log2L |+ 1   levels
+
+// In a Binary tree where every node has 0 or 2 children, the number of leaf nodes is always one more than nodes with two children
+
+// In a non-empty binary tree,
+// if n is the total number of nodes and e is the total number of edges,
+// then e = n-1
+
+// The maximum number of nodes at level ‘l’ of a binary tree is 2l
+
 class Node {
   constructor(d) {
     this.data = d;

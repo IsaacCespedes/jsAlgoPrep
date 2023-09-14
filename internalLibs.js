@@ -26,6 +26,8 @@ str1[1];
 str1.charAt(1);
 console.log(str.charCodeAt(0)); // 104
 String.fromCharCode(68); // "C"
+// 104, code point is the same as char code except for emojis and other special characters
+console.log(str.codePointAt(0));
 str1 < str2;
 str1.localeCompare(str2); // returns -1,0,1
 str1.includes("at"); // t/f
@@ -102,7 +104,9 @@ for (const element of set2) {
 
 // Array
 let arr = [1, 2, 3];
+const initArr = new Array(20).fill(0);
 arr.push(4);
+// arr.push(4,5,6);
 arr.pop();
 arr.unshift();
 arr.shift();
@@ -111,10 +115,10 @@ arr.shift();
 arr.splice(1, 1); // (start, deleteCount)
 let arrCopy = arr.slice(1, 3); // default (0, n)
 arr.sort(); // (function compare(a,b){a-b})
-arr.forEach((curr) => {});
+arr.forEach((curr, i, arr) => {});
 arr.reduce(function (acc, curr, i, arr) {}, acc);
 arr.reduceRight(function (acc, curr, i, arr) {}, acc); // starts with last element
-arr.map((curr) => {});
+arr.map((curr, i, arr) => {});
 arr.includes(3); // true
 arr.indexOf(2);
 arr.lastIndexOf(2);
@@ -131,8 +135,8 @@ arr.findIndex((a) => {
 arr.findLastIndex((a) => {
   a > 1;
 }); // returns 2
-arr.filter((a) => {
-  a > 1;
+arr.filter((curr, i, arr) => {
+  curr > 1;
 }); // returns [2,3]
 // every
 arr.every((a) => {
