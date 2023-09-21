@@ -4,19 +4,6 @@ function reverseString(s) {
   return s.split("").reverse().join("");
 }
 
-function isAlpha(c) {
-  let A_LOWER_CHAR_CODE = "a".charCodeAt(0);
-  let Z_LOWER_CHAR_CODE = "z".charCodeAt(0);
-  let A_UPPER_CHAR_CODE = "A".charCodeAt(0);
-  let Z_UPPER_CHAR_CODE = "Z".charCodeAt(0);
-
-  let charCode = c.charCodeAt(0);
-  let isLower = A_LOWER_CHAR_CODE <= charCode && charCode <= Z_LOWER_CHAR_CODE;
-  let isUpper = A_UPPER_CHAR_CODE <= charCode && charCode <= Z_UPPER_CHAR_CODE;
-
-  return isLower || isUpper;
-}
-
 function reverseStringIgnoreSpecials(s) {
   let sArray = s.split("");
 
@@ -27,8 +14,8 @@ function reverseStringIgnoreSpecials(s) {
     let leftChar = sArray[i];
     let rightChar = sArray[j];
 
-    let lAlpha = isAlpha(leftChar);
-    let rAlpha = isAlpha(rightChar);
+    let lAlpha = leftChar.match(/[a-zA-Z]/i);
+    let rAlpha = rightChar.match(/[a-zA-Z]/i);
 
     if (!lAlpha) {
       i++;
