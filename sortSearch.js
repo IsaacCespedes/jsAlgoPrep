@@ -107,6 +107,8 @@ class MinHeap {
     let n = this.arr.length;
     let smallest = -1;
 
+    // ensure that only non-leaf nodes are heapified
+    // since leaf nodes are already heapified by definition
     while (smallest != i && i < n / 2) {
       let left = 2 * i + 1;
       let right = 2 * i + 2;

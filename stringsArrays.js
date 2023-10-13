@@ -168,3 +168,24 @@ function smallestSubarrayWithSum(arr, x) {
 // console.log(
 //   smallestSubarrayWithSum([1, 11, 100, 1, 0, 200, 3, 2, 1, 250], 280)
 // );
+
+function logCombinations(numbers) {
+  const combinations = [];
+
+  function backtrack(start, current) {
+    if (current.length === numbers.length) {
+      combinations.push(current.slice());
+      return;
+    }
+
+    for (let i = start; i < numbers.length; i++) {
+      current.push(numbers[i]);
+      backtrack(i + 1, current);
+      current.pop();
+    }
+  }
+
+  backtrack(0, []);
+
+  console.log(combinations);
+}

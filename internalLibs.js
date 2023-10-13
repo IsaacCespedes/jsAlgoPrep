@@ -10,6 +10,9 @@ const result = Object.groupBy(
 console.log(result.a); // [{ a: 1, b: 2 }, { a: 1, b: 4 }]
 delete obj.a;
 
+for (let [k, v] of Object.entries(obj)) {
+}
+
 // for ..in  is for iterating over the enumerable properties of an object
 // for ..of  is for iterating over the values of an iterable, like an array, map, set, string
 
@@ -22,8 +25,8 @@ for (const char of str) {
 
 let str1 = "cat";
 let str2 = "bat";
-str1[1];
-str1.charAt(1);
+str1[1]; // "a"
+str1.charAt(1); // "a"
 console.log(str.charCodeAt(0)); // 104
 String.fromCharCode(68); // "C"
 // 104, code point is the same as char code except for emojis and other special characters
@@ -48,10 +51,13 @@ str1.padEnd(10, "."); // cat.......
 str1.padStart(10, "."); // .......cat
 str1.replace(/a/, "r"); //crt
 str1.replaceAll(/a/, "r");
-str1.slice(1, 2); // "at", end index not included
+str1.slice(1, 2); // "a" (start, end)
 str1.slice(1); // "at"
 str1.slice(-1); // "t"
 str1.split(""); // ["c", "a" ,"t"]
+const myStr = "Hello World!";
+const reversedStr = myStr.split("").reverse().join("");
+console.log(reversedStr);
 str1.substring(0, 3); // "cat", end index not included
 str1.toLowerCase();
 str1.toUpperCase();
@@ -110,9 +116,21 @@ arr.push(4);
 arr.pop();
 arr.unshift();
 arr.shift();
+
+// arr.concat([4, 5, 6]); // [1,2,3,4,5,6]
+// arr.concat(4, 5, 6); // [1,2,3,4,5,6]
+// arr.at(-1); // 3
+// arr.reverse(); // [3,2,1]
+// const array1 = ["a", "b", "c"];
+// const iterator = array1.values();
+
+// for (const value of iterator) {
+//   console.log(value);
+// }
+
 // splice to delete
 
-arr.splice(1, 1); // (start, deleteCount)
+arr.splice(1, 1); // (start, deleteCount), returns deleted elements
 let arrCopy = arr.slice(1, 3); // default (0, n)
 arr.sort(); // (function compare(a,b){a-b})
 arr.forEach((curr, i, arr) => {});
